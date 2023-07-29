@@ -1,0 +1,38 @@
+/* styles.css */
+
+.k1 {
+    font-style: italic;
+    min-height: 40rem;
+    /* background-color: rgb(42, 180, 239); */
+    color: aliceblue;
+    background-image: url('../img/Pharmacy-Management-Software-Development-Cost-and-features.jpg');
+  }
+  
+  .k2 {
+    margin-left: 60rem;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .centered-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 500px;
+    width: 2000px;
+    margin-top: 100px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+ 
+.login{
+    color: aliceblue;
+    font-size: larger;
+}
+
+
+
