@@ -27,7 +27,7 @@ const Homepage = () => {
           </button>
           <ul class="dropdown-menu dropdown-menu-dark">
             <li><a class="dropdown-item" href="Registeration">user register</a></li>
-            <li><a class="dropdown-item" href="#">pharmacy register</a></li>
+            <li><a class="dropdown-item" href="Pharmacyreg">pharmacy register</a></li>
            
           </ul>
         </li>

@@ -2,8 +2,8 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.generics import GenericAPIView
-from myapp.models import Login,patientreg,pharmacyreg
-from.serializers import LoginSerializer,RegisterSerializer,pharmacyregSerializer
+from myapp.models import Login,patientreg,pharmacyreg,medicine,symptoms,prescription,notification,complaints
+from.serializers import LoginSerializer,RegisterSerializer,pharmacyregSerializer,medicineSerializer,symptomsSerializer,prescriptionSerializer,notificationSerializer,complaintsSerializer
 
 class RegisterSerializerAPIView(GenericAPIView):
     serializer_class = RegisterSerializer
@@ -119,4 +119,115 @@ class pharmacyregSerializerAPIView(GenericAPIView):
             return Response({'data':serializer.data,'message':'pharmacy registered Successfully','Success':True},status=status.HTTP_201_CREATED)
         else:
             return Response({'data':serializer.errors,'message':"False"},status=status.HTTP_400_BAD_REQUEST)
+
+
+class medicineSerializersAPIView(GenericAPIView):
+    serializer_class = medicineSerializer
+   
+
+    def post(self,request):
+
+      
+        name=request.data.get('name')
+        price=request.data.get('price')
+        description=request.data.get('description')
+        image=request.data.get('image')
+       
+        pharmacy_id=request.data.get('pharmacy_id')
+        # role='user'
+        product_status='0'
+        serializer = self.serializer_class(data={'name':name,'price':price,'description':description,'shop_id':shop_id,'status':patient_status})
+        print(serializer)
+        if serializer.is_valid():
+            print('hai')
+            serializer.save()
+            return Response({'data':serializer.data,'message':'add product successfully','success':True},status=status.HTTP_201_CREATED)
+        return Response({'data':serializer.errors,'message':"Failed",'success':False},status=status.HTTP_400_BAD_REQUEST) 
+
+class symptomsSerializersAPIView(GenericAPIView):
+    serializer_class = symptomsSerializer
+   
+
+    def post(self,request):
+
+      
+        name=request.data.get('name')
+        age=request.data.get('age')
+        symptoms=request.data.get('symptoms')
+        sex=request.data.get('sex')
+       
+        pharmacy_id=request.data.get('pharmacy_id')
+        # role='user'
+        symptomsstatus='0'
+        serializer = self.serializer_class(data={'name':name,'age':age,'sex':sex,'symptoms':symptoms,'pharmacy_id':pharmacy_id,'status':symptomsstatus})
+        print(serializer)
+        if serializer.is_valid():
+            print('hai')
+            serializer.save()
+            return Response({'data':serializer.data,'message':'add product successfully','success':True},status=status.HTTP_201_CREATED)
+        return Response({'data':serializer.errors,'message':"Failed",'success':False},status=status.HTTP_400_BAD_REQUEST) 
      
+class prescriptionSerializersAPIView(GenericAPIView):
+    serializer_class = prescriptionSerializer
+   
+
+    def post(self,request):
+
+      
+        name=request.data.get('name')
+        age=request.data.get('age')
+        prescription=request.data.get('prescription')
+        sex=request.data.get('sex')
+       
+        pharmacy_id=request.data.get('pharmacy_id')
+        # role='user'
+        prescriptionstatus='0'
+        serializer = self.serializer_class(data={'name':name,'age':age,'prescription':prescription,'sex':sex,'pharmacy_id':pharmacy_id,'status':prescriptionstatus})
+        print(serializer)
+        if serializer.is_valid():
+            print('hai')
+            serializer.save()
+            return Response({'data':serializer.data,'message':'add product successfully','success':True},status=status.HTTP_201_CREATED)
+        return Response({'data':serializer.errors,'message':"Failed",'success':False},status=status.HTTP_400_BAD_REQUEST)     
+
+
+class notificationSerializersAPIView(GenericAPIView):
+    serializer_class = notificationSerializer
+   
+
+    def post(self,request):
+
+      
+        notification=request.data.get('notification')
+        date=request.data.get('date')
+        
+        pharmacy_id=request.data.get('pharmacy_id')
+        notificationstatus='0'
+        serializer = self.serializer_class(data={'notification':notification,'date':date,'pharmacy_id':pharmacy_id,'status':notificationstatus})
+        print(serializer)
+        if serializer.is_valid():
+            print('hai')
+            serializer.save()
+            return Response({'data':serializer.data,'message':'add product successfully','success':True},status=status.HTTP_201_CREATED)
+        return Response({'data':serializer.errors,'message':"Failed",'success':False},status=status.HTTP_400_BAD_REQUEST)     
+
+
+class complaintsSerializersAPIView(GenericAPIView):
+    serializer_class = complaintsSerializer
+   
+
+    def post(self,request):
+
+        name=request.data.get('name')
+        complaints=request.data.get('complaints')
+        date=request.data.get('date')
+        replay=request.data.get('replay')
+        pharmacy_id=request.data.get('pharmacy_id')
+        complaintsstatus='0'
+        serializer = self.serializer_class(data={'name':name,'notification':notification,'date':date,'replay':replay,'pharmacy_id':pharmacy_id,'status':complaintsstatus})
+        print(serializer)
+        if serializer.is_valid():
+            print('hai')
+            serializer.save()
+            return Response({'data':serializer.data,'message':'add product successfully','success':True},status=status.HTTP_201_CREATED)
+        return Response({'data':serializer.errors,'message':"Failed",'success':False},status=status.HTTP_400_BAD_REQUEST)   

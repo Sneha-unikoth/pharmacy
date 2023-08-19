@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'
+import { useNavigate } from "react-router";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -8,6 +9,8 @@ const Login = () => {
     username: '',
     password: '',
   });
+  
+  const navigate = useNavigate()
   const[formErrors,setFormErrors]=useState({});
   const[isSubmit,setIsSubmit]=useState(false);
   const handleInputChange = (e) => {
@@ -37,7 +40,27 @@ const Login = () => {
     setIsSubmit(true)
     if(Object.keys(formErrors).length===0 && isSubmit){
       axios.post(`http://127.0.0.1:8000/api/Login`,input).then((response)=>{
-      console.log(response.data.message)
+      console.log(response)
+     
+      if (response.data.success === true) {
+        if (response.data.data.role === "user") {
+          localStorage.setItem("name", response.data.data.username)
+          localStorage.setItem("login_id", response.data.data.login_id)
+          localStorage.setItem("role", response.data.data.role)
+          localStorage.setItem("user_id", response.data.data.user_id)
+            sessionStorage.setItem("currentloggedin", response.data.username);
+                  navigate("/Home")
+            
+        }
+        else if (response.data.data.role === "pharmacy") {
+          localStorage.setItem("name", response.data.data.username)
+          localStorage.setItem("login_id", response.data.data.login_id)
+          localStorage.setItem("role", response.data.data.role)
+          localStorage.setItem("pharmacy_id", response.data.data.user_id)
+          sessionStorage.setItem("currentloggedin", response.data.username);
+          navigate("/Pharmacyhome")
+        }  }
+       
       toast.success(response.data.message,{
         position:"bottom-center",
         autoClose:5000,
