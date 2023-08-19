@@ -22,6 +22,7 @@ import ADDCOMPLAINTS from '../Pages/ADDCOMPLAINTS'
 import VIEWCOMPLAINTS from '../Pages/VIEWCOMPLAINTS'
 import ADDFEEDBACK from '../Pages/ADDFEEDBACK'
 import VIEWFEEDBACK from '../Pages/VIEWFEEDBACK'
+import FOOTER from '../Pages/FOOTER'
 
 
 
@@ -51,6 +52,7 @@ const Mainrouter = () => {
         <Route path='/Viewcomplaints'element={<VIEWCOMPLAINTS/>}/>
         <Route path='/Addfeedback' element={<ADDFEEDBACK/>}/>
         <Route path='/Viewfeedback' element={<VIEWFEEDBACK/>}/>
+        <Route path='/Footer' element={<FOOTER/>}/>
         </Routes> 
     </div>
   )
