@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from myapp.models import Login,patientreg,pharmacyreg,medicine,symptoms,prescription,complaints,notification
+from myapp.models import Login,patientreg,pharmacyreg,medicine,symptoms,prescription,complaints,notification,feedback,cart,payment
 
 class LoginSerializer(serializers.ModelSerializer):
     class Meta:
@@ -58,3 +58,22 @@ class notificationSerializer(serializers.ModelSerializer):
         fields = '__all__'
         def create(self,validated_data):
             return notification.objects.create(**validated_data)
+
+class feedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=feedback
+        fields= '__all__'
+        def create(self,validated_data):
+            return feedback.objects.create(**validated_data)    
+class cartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=cart
+        fields= '__all__'
+        def create(self,validated_data):
+            return cart.objects.create(**validated_data)     
+class paymentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=payment
+        fields= '__all__'
+        def create(self,validated_data):
+            return payment.objects.create(**validated_data)                

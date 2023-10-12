@@ -1,8 +1,20 @@
 import React from 'react'
+import {Link,useNavigate } from 'react-router'
 
 const Pharmacynavbar = () => {
+  const navigate=useNavigate()
+  const logout = () =>{
+    localStorage.removeItem("name")
+    localStorage.removeItem("loginId")
+    localStorage.removeItem("role")
+    localStorage.removeItem("user_id")
+    navigate('/')
+
+
+  }
   return (
     <div>
+      <div id='nav'>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Medicine finder</a>
@@ -12,7 +24,7 @@ const Pharmacynavbar = () => {
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="Viewsymptoms">Viewsymptoms</a>
         </li>
         
         <li class="nav-item">
@@ -24,17 +36,25 @@ const Pharmacynavbar = () => {
         <li class="nav_item">
             <a class="nav-link" href='Addnotification'>Add notification</a>
         </li>
+        <li class="nav_item">
+            <a class="nav-link" href='Viewfeedback'>View feedback </a>
+        </li>
        
         <li class="nav-item">
           <a class="nav-link" href="Contact">contact</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
-        </li>
+        
       </ul>
+      <div className="navbar-nav ml-auto py-0">
+      <a onClick={logout} className="nav-item nav-link">
+        Logout
+      </a>
+      
+    </div>
     </div>
   </div>
 </nav>
+</div>
     </div>
   )
 }

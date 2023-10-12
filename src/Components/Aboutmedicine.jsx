@@ -6,10 +6,10 @@ const Aboutmedicine = () => {
         <div id="carouselExample" className="carousel slide">
   <div className="carousel-inner">
     <div className="carousel-item active">
-      <img src="img/pharmacy22.jpg" className="d-block w-100"  alt="..."  height="700" />
+      <img src="img/11599.jpg" className="d-block w-100"  alt="..."  height="700" />
     </div>
     <div className="carousel-item">
-      <img src="img/pharmacy3.jpg" className="d-block w-100" alt="..."  height="700" />
+      <img src="img/pharmacy22.jpg" className="d-block w-100" alt="..."  height="700" />
     </div>
     <div className="carousel-item">
       <img src="img/pharmacy1.jpg" className="d-block w-100" alt="..."  height="700" />

@@ -23,6 +23,11 @@ import VIEWCOMPLAINTS from '../Pages/VIEWCOMPLAINTS'
 import ADDFEEDBACK from '../Pages/ADDFEEDBACK'
 import VIEWFEEDBACK from '../Pages/VIEWFEEDBACK'
 import FOOTER from '../Pages/FOOTER'
+import VIEWSYMPTOMS from '../Pages/VIEWSYMPTOMS'
+import CART from '../Pages/CART'
+import PAYMENT from '../Pages/PAYMENT'
+import POPOUP from '../Pages/POPOUP'
+
 
 
 
@@ -53,6 +58,10 @@ const Mainrouter = () => {
         <Route path='/Addfeedback' element={<ADDFEEDBACK/>}/>
         <Route path='/Viewfeedback' element={<VIEWFEEDBACK/>}/>
         <Route path='/Footer' element={<FOOTER/>}/>
+        <Route path='/Viewsymptoms' element={<VIEWSYMPTOMS/>}/>
+        <Route path='/Cart/:id' element={<CART/>}/>
+        <Route path='/Payment/:id' element={<PAYMENT/>}/>
+        <Route path='/Popup' element={<POPOUP/>}/>
         </Routes> 
     </div>
   )

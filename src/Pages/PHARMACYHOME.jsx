@@ -2,6 +2,7 @@ import React from 'react'
 
 import Pharmacynavbar from '../Components/Pharmacynavbar'
 import Aboutmedicine from '../Components/Aboutmedicine'
+import Pharmacyfooter from '../Components/Pharmacyfooter'
 
 const PHARMACYHOME = () => {
   return (
@@ -9,6 +10,7 @@ const PHARMACYHOME = () => {
   
   <Pharmacynavbar/>
   <Aboutmedicine/>
+  <Pharmacyfooter/>
     </div>
   )
 }
