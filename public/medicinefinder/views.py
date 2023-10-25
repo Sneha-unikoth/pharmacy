@@ -38,19 +38,19 @@ def admin_login(request):
 
 def admin_approvepharmacy(request):
     data=pharmacyreg.objects.all() 
+    print(data)
     return render(request,'Approvedpharmacy.html',{'data':data})    
+
+def admin_viewpharmacy(request):
+    data=pharmacyreg.objects.all() 
+    print(data)
+    return render(request,'Viewpharmacy.html',{'data':data})      
 
 def admin_approve_pharmacy(request,id):
     data=pharmacyreg.objects.get(id=id) 
     data.pharmacystatus=1
     data.save()
-    return redirect('admin_approvepharmacy')
-
-   
-
-def admin_view_pharmacy(request):
-    data=pharmacyreg.objects.all() 
-    return render(request,'Viewpharmacy.html',{'data':data})      
+    return redirect('admin_approvepharmacy')    
 
 
 
@@ -58,6 +58,6 @@ def admin_delete_pharmacy(request,id):
     data=pharmacyreg.objects.get(id=id) 
     print(data)
     data.delete()
-    return redirect('admin_approvepharmacy')  
+    return redirect('admin_approvepharmacy')   
 
 
